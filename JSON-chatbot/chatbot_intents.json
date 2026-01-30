@@ -428,7 +428,24 @@
             "zzz.zzz.zzz"
             ],
             "has_action": false
+        },
+        {
+            "name": "user_birthday",
+            "description": "User tells the bot their birthday",
+            "patterns": [
+                "my birthday is (.+)",
+                "i was born on (.+)",
+                "born (.+)"
+            ],
+            "keywords": ["birthday", "born"],
+            "responses": [
+                "I will remember that your birthday is {user_birthday}! 🎂",
+                "Great! {user_birthday} is now saved. Happy early birthday! 🎉"
+            ],
+            "has_action": true,
+            "action_type": "store_user_birthday"
         }
+
 
     ]
 }
