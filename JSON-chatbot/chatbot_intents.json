@@ -444,6 +444,37 @@
             ],
             "has_action": true,
             "action_type": "store_user_birthday"
+        },
+        {
+            "name": "save_note",
+            "description": "User saves a note",
+            "patterns": [
+                "remember that (.+)",
+                "note: (.+)",
+                "save note: (.+)"
+            ],
+            "keywords": ["remember", "note", "save"],
+            "responses": [
+                "Got it! I've saved your note 📝",
+                "Your note has been stored!"
+            ],
+            "has_action": true,
+            "action_type": "save_note"
+        },
+        {
+            "name": "add_reminder",
+            "description": "User adds a reminder",
+            "patterns": [
+                "remind me to (.+)",
+                "set reminder to (.+)"
+            ],
+            "keywords": ["remind", "reminder"],
+            "responses": [
+        "Reminder saved!",
+                "Got it! I'll remember that."
+            ],
+            "has_action": true,
+            "action_type": "add_reminder"
         }
 
 

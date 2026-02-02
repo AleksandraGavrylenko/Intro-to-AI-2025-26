@@ -212,6 +212,22 @@ class AdvancedChatbot:
                 chatbot.context.set_user_data("birthday", birthday)
             return None
         return store_birthday_action
+    def _create_save_note_action(self):
+        def save_note_action(chatbot, match):
+            if match and match.lastindex >= 1:
+                note = match.group(1).strip()
+                notes = chatbot.context.get_user_data("notes", [])
+                notes.append(note)
+                chatbot.context.set_user_data("notes", notes)
+            return None
+        return save_note_action
+    def _create_show_notes_action(self):
+        def show_notes_action(chatbot, match):
+            notes = chatbot.context.get_user_data("notes", [])
+            if not notes:
+                return "You don't have any notes saved."
+            return "Here are your notes:\n" + "\n".join(f"- {n}" for n in notes)
+        return show_notes_action
 
     
     def _calculate(self, match) -> str:
